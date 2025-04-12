@@ -11,7 +11,7 @@ class EnrollmentController extends Controller
      */
     public function index()
     {
-        //
+        return view('enrollments.index');
     }
 
     /**
