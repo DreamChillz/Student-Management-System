@@ -8,7 +8,7 @@ class Student extends Model
 {
     protected $fillable = [
         'student_name',
-        'email',        // add other fields you use
+        'email',        
         'gender',
     ];
 

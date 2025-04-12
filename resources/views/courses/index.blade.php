@@ -14,35 +14,35 @@
             <h4>Create or edit course information such as course name, description, and credit hours.</h4>
             <div class="main-table">
                 <div class="main-table-header">
-                    <button class="add-button" onclick="window.location.href='{{ route('students.create') }}'">Add New
-                        Student</button>
+                    <button class="add-button" onclick="window.location.href='{{ route('courses.create') }}'">Add New
+                        Course</button>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Student ID</th>
-                            <th>Student Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Description</th>
+                            <th>Credit Hours</th>
                             <th>Date Added</th>
                             <th style="text-align:center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($students as $student)
+                        @forelse ($courses as $course)
                             <tr>
-                                <td>{{ $student->id }}</td>
-                                <td>{{ $student->student_name }}</td>
-                                <td>{{ $student->email }}</td>
-                                <td>{{ $student->gender }}</td>
-                                <td>{{ $student->created_at->format('Y-m-d') }}</td>
+                                <td>{{ $course->id }}</td>
+                                <td>{{ $course->course_name }}</td>
+                                <td>{{ $course->description }}</td>
+                                <td>{{ $course->credit_hours }}</td>
+                                <td>{{ $course->created_at->format('Y-m-d') }}</td>
                                 <td style="text-align:center">
                                     <button class=" action-btn edit-button"
-                                        onclick="window.location.href='{{ route('students.edit', $student->id) }}'">Edit</button>
+                                        onclick="window.location.href='{{ route('courses.edit', $course->id) }}'">Edit</button>
 
-                                    <form action="{{ route('students.destroy', $student->id) }}" method="POST"
+                                    <form action="{{ route('courses.destroy', $course->id) }}" method="POST"
                                         style="display:inline;"
-                                        onsubmit="return confirm('Are you sure you want to delete this student?');">
+                                        onsubmit="return confirm('Are you sure you want to delete this course?');">
                                         @csrf
                                         @method('DELETE')
                                         <button class=" action-btn delete-button"type="submit">Delete</button>
@@ -51,7 +51,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6">No student records found.</td>
+                                <td colspan="6">No course records found.</td>
                             </tr>
                         @endforelse
 

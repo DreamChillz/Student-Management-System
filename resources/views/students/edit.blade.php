@@ -10,7 +10,7 @@
     <div class="dashboard">
         <div style="height:45px"></div>
         <div class="container">
-            <h2>Edit New Student</h2>
+            <h2>Edit Student</h2>
             <h4>Update student details including personal and contact information.</h4>
             <div class="main-form">
                 @if ($errors->any())
