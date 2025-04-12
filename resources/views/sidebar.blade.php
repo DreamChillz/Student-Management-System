@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <div class="sidebar-profile">
-        <img src="renne.jpg" alt="User Avatar" class="profile-img" />
+        <img src="{{ asset('renne.jpg') }}" alt="User Avatar" class="profile-img" />
         <div class="profile-info">
             <span class="profile-name">Tan Jun Eng</span>
             <span class="profile-status">Online</span>
