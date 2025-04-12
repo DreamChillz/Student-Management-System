@@ -21,7 +21,7 @@
                     <thead>
                         <tr>
                             <th>Student ID</th>
-                            <th>Name</th>
+                            <th>Student Name</th>
                             <th>Email</th>
                             <th>Gender</th>
                             <th>Date Added</th>
