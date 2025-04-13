@@ -41,6 +41,14 @@
                 <span class="menu-label">Enrollment and Grading</span>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('reports*') ? 'active' : '' }}">
+            <a href="{{ route('reports') }}">
+                <span class="icon">
+                    <i class="fas fa-file-text"></i>
+                </span>
+                <span class="menu-label">Reports</span>
+            </a>
+        </li>
         <form action="{{ route('logout') }}" method="post" class="logout-form">
             @csrf
             <button type="submit" class="logout-button">

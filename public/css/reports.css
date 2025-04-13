@@ -1,0 +1,122 @@
+/* dashboard.css */
+
+.dashboard {
+    background-color: #f1f0f0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #9e9e9e;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.greeting {
+    margin-bottom: 36px;
+}
+
+.container h2 {
+    color: #007bff;
+    margin-bottom: 14px;
+}
+
+.container h4 {
+    color: #646464;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.container {
+    margin-top: 20px; /* Adjust top margin for spacing */
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+    border: 1px solid #9e9e9e;
+}
+
+.stat {
+    font-weight: bold;
+    font-size: 25px;
+    color: #333;
+}
+.stat-label {
+    color: #646464;
+}
+
+.report-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    border: 1px solid #9e9e9e;
+}
+.report-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.report-header span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+tr {
+    border-bottom: #9e9e9e 1px solid;
+}
+th,
+td {
+    padding: 10px 12px;
+    text-align: center;
+}
+
+th {
+    font-weight: normal;
+    color: #646464;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.export-btn {
+    font-size: 16px;
+    padding: 8px 40px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.export-btn span{
+    color:white;
+    font-size: 16px;
+}
+
+.export-btn:hover {
+    background-color: #0269d8;
+}

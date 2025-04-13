@@ -1,38 +1,27 @@
 @extends('app')
 
-@section('title', 'Dashboard')
+@section('title', 'Reports')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reports.css') }}">
 @endpush
 
 @section('content')
     <div class="dashboard">
-        <h2 class="greeting">Hello, Tan Jun Eng</h2>
+        <div style="height:45px"></div>
         <div class="container">
-            <h2>Home</h2>
-            <div class="summary-cards">
-                <div class="card">
-                    <span class="stat">{{ $totalStudents }}</span>
-                    <span class="stat-label">Total Students</span>
-                </div>
-                <div class="card">
-                    <span class="stat">{{ $totalCourses }}</span>
-                    <span class="stat-label">Total Courses</span>
-                </div>
-                <div class="card">
-                    <span class="stat">{{ $topCourse->course_name }}</span>
-                    <span class="stat-label">Top Scoring Course</span>
-                </div>
-            </div>
-        </div>
+            <h2>Reports</h2>
+            <h4>Generate and view performance reports including average marks per student and per course. Export report data
+                into CSV format for external analysis or record-keeping.</h4>
 
-        <div class="container">
-            <h2>Statistics</h2>
             <div class="report-cards">
                 <div class="report">
                     <div class="report-header">
-                        <span>Average Marks per Student</span>
+                        <span>Average Marks For Each Student</span>
+                        <button id="export-students-btn" class="export-btn">
+                            <i class="fa fa-file-excel"></i>
+                            <span>Export (CSV)</span>
+                        </button>
                     </div>
                     <table>
                         <thead>
@@ -63,7 +52,11 @@
                 </div>
                 <div class="report">
                     <div class="report-header">
-                        <span>Average Marks per Course</span>
+                        <span>Average Marks For Each Course</span>
+                        <button id="export-courses-btn" class="export-btn">
+                            <i class="fa fa-file-excel"></i>
+                            <span>Export (CSV)</span>
+                        </button>
                     </div>
                     <table>
                         <thead>
@@ -93,4 +86,16 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.getElementById('export-students-btn').addEventListener('click', function() {
+            window.location.href = '/reports/export-students'; 
+        });
+
+        document.getElementById('export-courses-btn').addEventListener('click', function() {
+            window.location.href = '/reports/export-courses'; 
+        });
+    </script>
 @endsection
