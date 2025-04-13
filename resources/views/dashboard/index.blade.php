@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="dashboard">
-        <h2 class="greeting">Hello, Tan Jun Eng</h2>
+        <h2 class="greeting">Hello, {{auth()->user()->name}}</h2>
         <div class="container">
             <h2>Home</h2>
             <div class="summary-cards">

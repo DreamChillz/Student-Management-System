@@ -2,7 +2,7 @@
     <div class="sidebar-profile">
         <img src="{{ asset('renne.jpg') }}" alt="User Avatar" class="profile-img" />
         <div class="profile-info">
-            <span class="profile-name">Tan Jun Eng</span>
+            <span class="profile-name">{{auth()->user()->name}}</span>
             <span class="profile-status">Online</span>
         </div>
     </div>
