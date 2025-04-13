@@ -15,4 +15,23 @@ class Enrollment extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function getGradeAttribute()
+    {
+        $mark = $this->mark;
+
+        if ($mark >= 90) {
+            return 'A';
+        } elseif ($mark >= 80) {
+            return 'B';
+        } elseif ($mark >= 70) {
+            return 'C';
+        } elseif ($mark >= 60) {
+            return 'D';
+        } elseif ($mark >= 50) {
+            return 'E';
+        } else {
+            return 'F';
+        }
+    }
 }
