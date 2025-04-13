@@ -17,4 +17,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('students', StudentController::class);
     Route::resource('courses', CourseController::class);
     Route::resource('enrollments', EnrollmentController::class);
+    Route::post('/enrollments/bulk-save/{studentId}', [EnrollmentController::class, 'bulkSave'])->name('enrollments.bulkSave');
 });

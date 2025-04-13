@@ -16,14 +16,14 @@
                 @foreach ($students as $student)
                     <div class="enrollment-card">
                         <div class="enrollment-header">
-                            <table class="enrollment-header-table">
+                            <table class="student-info-table">
                                 <tbody>
                                     <tr>
                                         <td>{{ $student->id }}</td>
                                         <td>{{ $student->student_name }}</td>
                                         <td>
                                             <div class="button-group">
-                                                <a href="{{ route('enrollments.create', $student->id) }}"
+                                                <a href="{{ route('enrollments.show', $student->id) }}"
                                                     class="btn btn-primary">Enroll
                                                     Course</a>
                                                 <a href="" class="btn btn-secondary">Assign
@@ -61,3 +61,4 @@
     </div>
 
 @endsection
+
