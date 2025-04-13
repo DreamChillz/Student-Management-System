@@ -10,7 +10,7 @@
     <div class="dashboard">
         <div style="height:45px"></div>
         <div class="container">
-            <h2>Course Enrollment</h2>
+            <h2>Course Enrollment and Grading</h2>
             <h4>Enroll students in courses and assign grades for each enrollment.</h4>
             <div class="enrollment-list">
                 @foreach ($students as $student)
@@ -26,8 +26,8 @@
                                                 <a href="{{ route('enrollments.show', $student->id) }}"
                                                     class="btn btn-primary">Enroll
                                                     Course</a>
-                                                <a href="" class="btn btn-secondary">Assign
-                                                    Grades</a>
+                                                <a href="{{ route('enrollments.assignGrade', $student->id) }}"
+                                                    class="btn btn-secondary">Assign Grades</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -43,7 +43,6 @@
                                             <td>{{ $enrollment->course->course_name }}</td>
                                             <td>{{ $enrollment->mark ?? '-' }}</td>
                                             <td>{{ $enrollment->grade ?? '-' }}</td>
-                                            <td>12-04-2025</td>
                                         </tr>
                                     @empty
                                         <tr>
@@ -61,4 +60,3 @@
     </div>
 
 @endsection
-

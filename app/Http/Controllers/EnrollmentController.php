@@ -18,26 +18,7 @@ class EnrollmentController extends Controller
         return view('enrollments.index', compact('students'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
+    //show enrollment form
     public function show($student_id)
     {
         $student = Student::with('enrollments.course')->findOrFail($student_id);
@@ -45,41 +26,8 @@ class EnrollmentController extends Controller
         return view('enrollments.enroll', compact('student', 'courses'));
     }
 
-    public function addCourse(Request $request, $studentId)
-    {
-        $request->validate([
-            'course_id' => 'required|exists:courses,id',
-        ]);
 
-        // Check if the enrollment already exists
-        $exists = Enrollment::where('student_id', $studentId)
-            ->where('course_id', $request->course_id)
-            ->exists();
-
-        if ($exists) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Student is already enrolled in this course.'
-            ]);
-        }
-
-        // Create the new enrollment
-        $enrollment = Enrollment::create([
-            'student_id' => $studentId,
-            'course_id' => $request->course_id,
-            'mark' => null, // default
-        ]);
-
-        // Load related course info for the response
-        $enrollment->load('course');
-
-        return response()->json([
-            'success' => true,
-            'enrollment' => $enrollment
-        ]);
-    }
-
-
+    //to save enrollment form
     public function bulkSave($studentId, Request $request)
     {
         $validated = $request->validate([
@@ -106,12 +54,7 @@ class EnrollmentController extends Controller
         ]);
     }
 
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    //to delete enrollment data
     public function destroy(string $id)
     {
         $enrollment = Enrollment::find($id);
@@ -123,5 +66,23 @@ class EnrollmentController extends Controller
         $enrollment->delete();
 
         return response()->json(['success' => true]);
+    }
+
+    public function showAssignGrade($student_id)
+    {
+        $student = Student::with('enrollments.course')->findOrFail($student_id);
+        $courses = Course::all();
+        return view('enrollments.grade', compact('student', 'courses'));
+    }
+
+    public function updateMarks(Request $request, $studentId)
+    {
+        foreach ($request->input('marks', []) as $enrollmentId => $mark) {
+            Enrollment::where('id', $enrollmentId)
+                ->where('student_id', $studentId)
+                ->update(['mark' => $mark]);
+        }
+
+        return redirect()->route('enrollments.index')->with('success', 'Marks updated successfully!');
     }
 }

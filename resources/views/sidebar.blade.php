@@ -38,7 +38,7 @@
                 <span class="icon">
                     <i class="fas fa-book-open"></i>
                 </span>
-                <span class="menu-label">Enrollment</span>
+                <span class="menu-label">Enrollment and Grading</span>
             </a>
         </li>
         <form action="{{ route('logout') }}" method="post" class="logout-form">

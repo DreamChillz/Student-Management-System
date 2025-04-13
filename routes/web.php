@@ -18,4 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('courses', CourseController::class);
     Route::resource('enrollments', EnrollmentController::class);
     Route::post('/enrollments/bulk-save/{studentId}', [EnrollmentController::class, 'bulkSave'])->name('enrollments.bulkSave');
+    Route::get('/enrollments/{student_id}/assign-grade', [EnrollmentController::class, 'showAssignGrade'])->name('enrollments.assignGrade');
+    Route::post('/enrollments/{student_id}/assign-grade', [EnrollmentController::class, 'updateMarks'])->name('enrollments.updateMarks');
 });
