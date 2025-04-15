@@ -31,7 +31,7 @@ class StudentController extends Controller
     {
         $validatedData = $request->validate([
             'student_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:students,email',
+            'email' => 'required|email',
             'gender' => 'required|string',
         ]);
 
@@ -66,7 +66,7 @@ class StudentController extends Controller
     {
         $validatedData = $request->validate([
             'student_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:students,email',
+            'email' => 'required|email',
             'gender' => 'required|string',
         ]);
 

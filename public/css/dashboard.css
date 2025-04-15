@@ -76,6 +76,7 @@ table {
     border-collapse: collapse;
     margin-top: 10px;
     font-size: 0.9rem;
+    width: 100%;
 }
 
 tr {

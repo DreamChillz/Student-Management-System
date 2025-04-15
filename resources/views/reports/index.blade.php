@@ -38,7 +38,7 @@
                                     <td>{{ $avgMarkPerStudent->id }}</td>
                                     <td>{{ $avgMarkPerStudent->student_name }}</td>
                                     <td>{{ $avgMarkPerStudent->total_courses }}</td>
-                                    <td>{{ $avgMarkPerStudent->average_mark }}</td>
+                                    <td>{{ number_format($avgMarkPerStudent->average_mark,2) }}</td>
                                 </tr>
                             @empty
                                 <tr>
@@ -73,7 +73,7 @@
                                     <td>{{ $avgMarkPerCourse->id }}</td>
                                     <td>{{ $avgMarkPerCourse->course_name }}</td>
                                     <td>{{ $avgMarkPerCourse->total_students }}</td>
-                                    <td>{{ $avgMarkPerCourse->average_mark }}</td>
+                                    <td>{{ number_format($avgMarkPerCourse->average_mark,2) }}</td>
                                 </tr>
                             @empty
                                 <tr>

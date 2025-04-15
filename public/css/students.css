@@ -221,6 +221,7 @@ textarea{
     transition: border 0.2s ease;
     resize: none;
     width:70%;
+    font-family: "Inter", sans-serif;
 }
 textarea:focus{
     outline: none;
